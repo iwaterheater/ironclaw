@@ -1,0 +1,27 @@
+schema_version = "reborn.extension_manifest.v3"
+id = "neara"
+name = "NEARA"
+version = "0.1.0"
+description = "NEARA token launchpad on NEAR: list and quote coins, and build unsigned launch, buy, sell and claim transactions — each with a link the account owner approves in their own wallet."
+trust = "third_party"
+
+# Keyless hosted MCP server. No credential is injected: every tool either
+# reads public chain data or returns UNSIGNED transactions plus a neara.fun
+# signing link, so the server never holds or needs a key.
+[mcp]
+origin_gate_matrix = { loop_run = "gated_unless_granted", product = "forbidden", automation = "forbidden" }
+server = "https://neara.fun/api/mcp"
+namespace = "neara"
+max_tools = 32
+default_permission = "ask"
+effects = ["network"]
+
+# Statically pinned read-only tool: model-visible from first boot. A
+# successful tools/list discovery replaces it with the server's live catalog.
+[[tools]]
+origin_gate_matrix = { loop_run = "gated_unless_granted", product = "forbidden", automation = "forbidden" }
+id = "neara.list_tokens"
+description = "The newest coins launched on NEARA, with price and market cap in their pair and in USD."
+default_permission = "ask"
+input_schema_ref = "schemas/neara/list_tokens.input.v1.json"
+prompt_doc_ref = "prompts/neara/list_tokens.md"

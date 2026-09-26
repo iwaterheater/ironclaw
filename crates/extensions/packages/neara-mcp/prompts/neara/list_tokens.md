@@ -1,0 +1,3 @@
+Lists the newest coins launched on NEARA (neara.fun), a token launchpad on NEAR mainnet, newest first. Each coin has a fixed supply of 1,000,000,000, lives at `<symbol>-<suffix>.nearafun.near`, and trades in its own locked pool on Rhea DCL quoted in NEAR or ZEC.
+
+After discovery the server also offers `get_token`, `get_quote`, `get_trades`, and build tools (`build_launch`, `build_buy`, `build_sell`, `build_claim_fees`, `build_claim_dividends`). Build tools return unsigned NEAR transactions and a `sign_url`: give the `sign_url` to the account owner, who reviews and approves it in their own wallet. Never ask the user for a private key.

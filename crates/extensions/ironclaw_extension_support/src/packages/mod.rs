@@ -19,6 +19,7 @@ mod github;
 mod gmail;
 mod gsuite;
 pub mod nearai;
+mod neara;
 mod notion;
 mod slack;
 mod telegram;
@@ -40,6 +41,7 @@ const PACKAGES: &[PackageEntry] = &[
     (gsuite::DRIVE_ID, gsuite::google_drive_bundle),
     (gsuite::SHEETS_ID, gsuite::google_sheets_bundle),
     (gsuite::SLIDES_ID, gsuite::google_slides_bundle),
+    (neara::ID, neara::bundle),
     (notion::ID, notion::bundle),
     (slack::ID, slack::bundle),
     (telegram::ID, telegram::bundle),
